@@ -12,7 +12,7 @@ const refreshWeatherHere = () =>{
                  alert('Что-то пошло не так... Пожалуйста, обновите страницу')
             })
     }, error => {
-        openWeatherAPI.getByNameOfCity("Санкт-Петербург")
+        openWeatherAPI.getByNameOfCity("Saint Petersburg")
         .then(weather => {
             weatherHere.innerHTML = ""
             weatherHere.append(weatherHereShow(weather))
@@ -88,11 +88,12 @@ const getParams = weatherCity => {
 }
 const addToFavorites = async event => {
     event.preventDefault()
-    const cityName = event.currentTarget.firstElementChild.value.split(' ').join('_');
-    if (cityName === ''){
+    const cityName1 = event.currentTarget.firstElementChild.value.split(' ').join('_');
+    if (cityName1 === ''){
         alert('Введите название города')
     }
     else{
+        const cityName = cityName1[0].toUpperCase() + cityName1.slice(1);
         event.currentTarget.firstElementChild.value = ''
         let cityExisted = false;
         const listStorage = JSON.parse(localStorage.getItem('favoritesList'));
