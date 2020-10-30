@@ -117,6 +117,7 @@ const addToFavorites = async event => {
                 if (response.cod === '404'){
                     alert(`${cityName} не найден`)
                     const loading = weatherCityFavorites.querySelector(`.weather-city[cityName=${cityName}]`)
+                    alert(loading)
                     weatherCityFavorites.removeChild(loading)
                 } 
             } 
